@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import Container from '../container/Container'
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -11,7 +12,8 @@ function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50 h-16 border-b border-amber-200/50 bg-white/70 backdrop-blur-md shadow-sm">
-      <div className="h-full max-w-6xl mx-auto px-4 flex items-center justify-between flex-row-reverse">
+      <Container>
+      <div className="h-16 flex items-center justify-between flex-row-reverse">
         
         {/* لینک‌های دسکتاپ */}
         <ul className="hidden md:flex items-center gap-2">
@@ -69,14 +71,16 @@ function Navbar() {
             )}
           </svg>
         </button>
+           
       </div>
-
+     </Container>
       {/* منوی کشویی موبایل */}
       <div
         className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out bg-white/90 backdrop-blur-md border-b border-amber-200/50 ${
           isOpen ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
+        <Container>
         <ul className="flex flex-col px-4 py-2">
           {navLinks.map((link) => (
             <li key={link.to}>
@@ -90,7 +94,9 @@ function Navbar() {
             </li>
           ))}
         </ul>
+        </Container>
       </div>
+  
     </nav>
   )
 }
