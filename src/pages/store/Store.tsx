@@ -1,6 +1,7 @@
 import React from 'react'
 import ProductItem from '../../components/productitem/ProductItem'
 import Container from '../../components/container/Container'
+import { Link } from 'react-router-dom'
 
 function Store() {
   return (
@@ -23,10 +24,20 @@ function Store() {
 
         {/* گرید محصولات */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <Link to={`/Product/${1}`} > 
           <ProductItem />
+          </Link>
+           <Link to={`/Product/${2}`} > 
           <ProductItem />
+          </Link>
+           <Link to={`/Product/${3}`} > 
           <ProductItem />
+          </Link>
+           <Link to={`/Product/${4}`} > 
           <ProductItem />
+          </Link>
+           
+          
         </div>
 
       </div>
