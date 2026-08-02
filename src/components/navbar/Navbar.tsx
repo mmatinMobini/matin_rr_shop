@@ -31,10 +31,10 @@ function Navbar() {
             {/* نشان برند */}
             <Link to="/" className="flex items-center gap-2 shrink-0">
               <span className="w-9 h-9 rounded-full bg-gradient-to-br from-[#9a4b1f] to-amber-500 flex items-center justify-center text-white text-sm font-bold shadow-[0_4px_12px_-2px_rgba(154,75,31,0.5)]">
-                م
+                M
               </span>
               <span className="hidden sm:block text-sm font-bold text-[#2b2420]">
-                استودیو مانی
+                Matinbuti
               </span>
             </Link>
 
