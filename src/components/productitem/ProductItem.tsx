@@ -27,7 +27,7 @@ function ProductItem() {
           </span>
 
           {/* بج امتیاز شناور روی لبه تصویر */}
-          <div className="absolute -bottom-4 left-4 bg-white rounded-2xl shadow-[0_6px_16px_-4px_rgba(43,36,32,0.15)] px-3 py-2 flex items-center gap-1.5">
+          <div className="absolute bottom-1  left-4  bg-white rounded-2xl shadow-[0_6px_16px_-4px_rgba(43,36,32,0.15)] px-3 py-2 flex items-center gap-1.5">
             <svg className="w-3.5 h-3.5 fill-current text-[#b8860b]" viewBox="0 0 20 20">
               <path d="M10 15.27L16.18 19l-1.64-7.03L20 7.24l-7.19-.61L10 0 7.19 6.63 0 7.24l5.46 4.73L3.82 19z" />
             </svg>

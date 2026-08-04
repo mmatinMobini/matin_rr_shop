@@ -62,6 +62,7 @@ function Navbar() {
 
             {/* اکشن‌ها */}
             <div className="flex items-center gap-2">
+              <Link to={"/Cart"}>
               <button
                 className="
                   relative w-11 h-11 flex items-center justify-center rounded-full
@@ -90,6 +91,7 @@ function Navbar() {
                   2
                 </span>
               </button>
+              </Link>
 
               <button
                 onClick={() => setIsOpen(!isOpen)}
