@@ -133,8 +133,8 @@ fill="none"
         }`}
       >
         <Container>
-          <div className="bg-white/90 backdrop-blur-xl border border-amber-100/70 rounded-3xl shadow-[0_12px_28px_-8px_rgba(43,36,32,0.15)] p-2">
-            <ul className="flex flex-col gap-1">
+          <div className="bg-white/90 backdrop-blur-xl border border-amber-100/70 rounded-3xl  p-2">
+            <ul className="flex flex-col gap-1 ">
               {navLinks.map((link) => {
                 const isActive = isActivePath(link.to)
                 return (
