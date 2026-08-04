@@ -22,7 +22,7 @@ function Button( { children ,variant ,style ,...rest   }   : TButton  ) {
 
 export default Button
 
-function checkvariant ( variant : Tvariant ){
+function checkvariant ( variant? : Tvariant ){
 if ( variant === " primary " ) {
   return{backgroundColor : " #9a4b1f" , color : "white "};
 }
