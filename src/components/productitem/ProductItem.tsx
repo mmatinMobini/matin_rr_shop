@@ -17,7 +17,7 @@ function ProductItem() {
         {/* Media */}
         <div className="relative w-full aspect-square overflow-hidden bg-[#f7f3ee]">
           <img
-            src="https://studiomani.ir/wp-content/uploads/2025/04/facial-cleanser-photography-03.webp"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRjN-dyta4qLo2bm4veT7bHtjn7osqzv0n52tP9W4ZiQ&s=10"
             alt="Product"
             className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
           />
