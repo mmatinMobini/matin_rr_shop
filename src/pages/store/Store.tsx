@@ -2,20 +2,24 @@ import  { useEffect, useState } from 'react'
 import ProductItem from '../../components/productitem/ProductItem'
 import Container from '../../components/container/Container'
 import { Link } from 'react-router-dom'
-
 import { getProducts } from '../../services/api'
+import type { Products } from '../../type/servers'
 
 function Store() {
-  const [ products   , setProducts ] = useState([])
+  const [ products   , setProducts ] = useState<Products[]>([])
 
     useEffect(() => {
     getProducts().then((resualt) =>{
-      console.log(resualt)
+      // console.log(resualt)
         setProducts(resualt)
-    })
+   
+      })
     },  [])
     
+  
 
+  
+    
 
 
 
@@ -42,11 +46,13 @@ function Store() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         
             {
+          
+              
               products.map((item)=>{
                 return(
-                   <Link to={`/Product/${1}`} > 
-          <ProductItem />
-          </Link>  
+                   <Link to={`/Product/${item.id}`} > 
+                    <ProductItem {...item}  />
+                   </Link>  
                 )
               })
             }
