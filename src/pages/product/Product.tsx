@@ -1,7 +1,33 @@
+import { useParams } from 'react-router-dom'
 import Button from '../../components/button/Button'
 import Container from '../../components/container/Container'
+import { useEffect, useState } from 'react';
+import { getProductByid } from '../../services/api';
+import type { Products } from '../../type/servers';
+// import { log } from 'console';
+// type TproductsItem = Products 
 
 function Product() {
+
+  const params  = useParams<{ id  : string }>() ; 
+      const [productViaID, setproductViaID] = useState<Products>()
+    // console.log(params);
+    
+
+    useEffect(() => {
+
+      getProductByid(params.id as string).then((resualt =>{
+        // console.log(resualt)
+        setproductViaID(resualt)
+        
+      }))
+
+
+
+    }, [])
+
+
+   
   return (
     <div className="overflow-x-hidden">
       <Container>
@@ -18,7 +44,7 @@ function Product() {
                 <div className="relative rounded-[2rem] overflow-hidden bg-white shadow-[0_10px_40px_-8px_rgba(43,36,32,0.15)] aspect-square">
                   <img
                     className="w-full h-full object-cover"
-                    src="https://studiomani.ir/wp-content/uploads/2025/04/facial-cleanser-photography-03.webp"
+                    src={productViaID?.image}
                     alt="Product"
                   />
                   <span className="absolute top-4 right-4 bg-white/90 backdrop-blur text-[11px] font-medium text-[#9a4b1f] px-3 py-1.5 rounded-full shadow-sm">
@@ -32,8 +58,8 @@ function Product() {
                     <path d="M10 15.27L16.18 19l-1.64-7.03L20 7.24l-7.19-.61L10 0 7.19 6.63 0 7.24l5.46 4.73L3.82 19z" />
                   </svg>
                   <div className="leading-tight">
-                    <p className="text-sm font-semibold text-[#2b2420]">4.8</p>
-                    <p className="text-[11px] text-[#8a7f73]">۱۲۸ نظر</p>
+                    <p className="text-sm font-semibold text-[#2b2420]">{ productViaID?.rating.rate}</p>
+                    <p className="text-[11px] text-[#8a7f73]">{productViaID?.rating.count} نظر</p>
                   </div>
                 </div>
               </div>
@@ -43,20 +69,20 @@ function Product() {
             <div className="lg:col-span-5 flex flex-col pt-6 lg:pt-0 min-w-0">
 
               <span className="text-xs font-medium text-[#9a4b1f] uppercase tracking-wider mb-3">
-                مراقبت پوستی
+                {productViaID?.category}
               </span>
 
               <h1 className="text-2xl sm:text-3xl font-bold text-[#2b2420] leading-snug">
-                شوینده صورت
+                {productViaID?.title}
               </h1>
 
               <p className="mt-4 text-sm sm:text-base text-[#6b6259] leading-relaxed">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, quo cupiditate. Sed accusantium, eveniet aliquid maiores iure aperiam aut voluptates.
+                {productViaID?.description}
               </p>
 
               <div className="flex items-baseline gap-2 mt-6 flex-wrap">
-                <span className="text-3xl sm:text-4xl font-bold text-[#2b2420]">$55.00</span>
-                <span className="text-sm text-[#8a7f73] line-through">$68.00</span>
+                <span className="text-3xl sm:text-4xl font-bold text-[#2b2420]">{productViaID?.price}</span>
+                <span className="text-sm text-[#8a7f73] line-through">{productViaID?.price  + 10 } </span>
               </div>
 
               {/* بج‌های اعتماد */}
@@ -140,7 +166,7 @@ ext-[#2b2420]">1</span>
       <div className="lg:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur-md border-t border-[#ede6dc] px-4 py-3 flex items-center gap-3 shadow-[0_-8px_24px_-8px_rgba(43,36,32,0.1)]">
         <div className="leading-tight shrink-0">
           <p className="text-[11px] text-[#8a7f73]">قیمت</p>
-          <p className="text-lg font-bold text-[#2b2420]">$55.00</p>
+          <p className="text-lg font-bold text-[#2b2420]">{productViaID?.price}</p>
         </div>
         <Button variant=' primary '
           className="

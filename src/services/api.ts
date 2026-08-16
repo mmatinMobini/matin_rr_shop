@@ -11,7 +11,14 @@ import axios from "axios";
         const { data } = await client("/products")
 
         return data
-        
+    
 
     }
 
+
+
+    export async function getProductByid(id :number | string ) {
+        const { data } = await client (`/products/${id}`)
+         return data;
+        
+    }
