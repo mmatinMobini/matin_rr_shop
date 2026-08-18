@@ -5,12 +5,16 @@ import Navbar from "./components/navbar/Navbar"
 import Layout from "./components/layout/Layout"
 import Product from "./pages/product/Product"
 import Cart from "./pages/cart/Cart"
+import {  ShoppingcardContext_Provider } from "./context/ShoppingCardContext"
+import { useState } from "react"
 
 function App() {
   
+// const [first, setfirst] = useState({})
 
 return(
-  
+ 
+  <ShoppingcardContext_Provider>
   <Layout>
   <Routes>
     <Route  path={"/"} element={<Home />} />
@@ -19,6 +23,7 @@ return(
     <Route  path={"/Cart"} element={<Cart />} />
   </Routes>
 </Layout>
+</ShoppingcardContext_Provider>
 
 )
 
