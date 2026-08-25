@@ -1,7 +1,17 @@
 import Container from '../../components/container/Container'
 import CartItem from '../../components/cartitem/CartItem'
+import { ShoppingCardContext, useShoppingCardContext } from '../../context/ShoppingCardContext'
+import { useContext } from 'react'
 
 function Cart() {
+
+  // / this what happen when we write useShoppingCardContext() =   return useContext(ShoppingCardContext) / 
+
+const { cardItem} =useShoppingCardContext()
+      
+cardItem.map((it)=>{
+  it.
+})
   return (
     <div className="overflow-x-hidden">
       <Container>
