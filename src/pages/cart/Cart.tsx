@@ -7,11 +7,7 @@ function Cart() {
 
   // / this what happen when we write useShoppingCardContext() =   return useContext(ShoppingCardContext) / 
 
-const { cardItem} =useShoppingCardContext()
-      
-cardItem.map((it)=>{
-  it.
-})
+const { cardItem} =useShoppingCardContext()  
   return (
     <div className="overflow-x-hidden">
       <Container>
