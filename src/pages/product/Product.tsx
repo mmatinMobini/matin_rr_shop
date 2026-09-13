@@ -4,6 +4,7 @@ import Container from '../../components/container/Container'
 import { useEffect, useState } from 'react';
 import { getProductByid } from '../../services/api';
 import type { Products } from '../../type/servers';
+import {  useShoppingCardContext } from '../../context/ShoppingCardContext';
 // import { log } from 'console';
 // type TproductsItem = Products 
 
@@ -13,6 +14,7 @@ function Product() {
       const [productViaID, setproductViaID] = useState<Products>()
     // console.log(params);
     
+    const {handleIncreaseProduct ,cardItem} = useShoppingCardContext()
 
     useEffect(() => {
 
@@ -25,6 +27,7 @@ function Product() {
 
 
     }, [])
+console.log(cardItem);
 
 
    
@@ -109,7 +112,7 @@ function Product() {
                   <span className="w-8 text-center text-sm font-medium t
 
 ext-[#2b2420]">1</span>
-                  <button className="w-9 h-9 rounded-full flex items-center justify-center text-[#2b2420] hover:bg-white hover:shadow-sm transition-all duration-200">
+                  <button  onClick={()=> handleIncreaseProduct(parseInt(params.id as string))}  className="w-9 h-9 rounded-full flex items-center justify-center text-[#2b2420] hover:bg-white hover:shadow-sm transition-all duration-200">
                     +
                   </button>
                 </div>
@@ -117,7 +120,7 @@ ext-[#2b2420]">1</span>
 
               {/* دکمهٔ خرید — فقط دسکتاپ، در موبایل نوار چسبان پایین جایگزین می‌شود */}
               <div className="hidden lg:flex flex-col mt-7">
-                <Button variant=' primary '
+                <Button onClick={()=> handleIncreaseProduct(parseInt(params.id as string))} variant=' primary '
                   className="
                     w-full py-3.5 flex items-center justify-center gap-2 rounded-2xl
                     bg-[#9a4b1f] hover:bg-[#7c3a15] active:scale-[0.98]
@@ -168,7 +171,7 @@ ext-[#2b2420]">1</span>
           <p className="text-[11px] text-[#8a7f73]">قیمت</p>
           <p className="text-lg font-bold text-[#2b2420]">{productViaID?.price}</p>
         </div>
-        <Button variant=' primary '
+        <Button onClick={()=> handleIncreaseProduct(parseInt(params.id as string))} variant=' primary '
           className="
             flex-1 h-12 flex items-center justify-center gap-2 rounded-2xl
             bg-[#9a4b1f] active:scale-[0.98]

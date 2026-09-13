@@ -9,7 +9,7 @@ import React, { type ComponentProps } from 'react'
  
 function Button( { children ,variant ,style ,...rest   }   : TButton  ) {
   
-  console.log(checkvariant(variant) );
+  // console.log(checkvariant(variant) );
   
   
   

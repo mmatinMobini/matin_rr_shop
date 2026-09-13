@@ -14,7 +14,10 @@ import React, {  createContext, useContext, useState } from "react";
     }
 
  export   interface  IShoppingCardContext_itSelf {
-                cardItem  : ICardItem[]
+                cardItem  : ICardItem[],
+                handleIncreaseProduct : ( id : number  ) => void  ;
+                
+
     }
 
  
@@ -34,13 +37,34 @@ export const ShoppingCardContext = createContext({} as IShoppingCardContext_itSe
     }
 
 
+      
+
 export function ShoppingcardContext_Provider(  {  children  } : IShoppingCardContext_Provider ){
 
     const [cardItem, setcardItem ] = useState<ICardItem[]>([])
 
+      const handleIncreaseProduct=(id : number )=>{
+
+                setcardItem(currentitems=>{
+                    let selcetedItem = currentitems.find(item=> item.id == id )
+
+                    if(selcetedItem == null ){
+                        return [...currentitems,{id  : id   , qty : 1 }]
+                    }else{
+                    return    currentitems.map(item=>{
+                            if(item.id == id ){
+                                return {...item,
+                                    qty : item.qty+1}
+                            }else {
+                                return item
+                            }
+                        })
+                    }
+                })
+                    } 
     return(
 
-         <ShoppingCardContext.Provider value={ { cardItem } }>
+         <ShoppingCardContext.Provider value={ { cardItem, handleIncreaseProduct } }>
             { children } 
          </ShoppingCardContext.Provider>
     )
