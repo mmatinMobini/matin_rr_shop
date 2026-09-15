@@ -14,7 +14,7 @@ function Product() {
       const [productViaID, setproductViaID] = useState<Products>()
     // console.log(params);
     
-    const {handleIncreaseProduct ,cardItem} = useShoppingCardContext()
+    const {handleIncreaseProduct ,cardItem ,handleDecreaseProduct} = useShoppingCardContext()
 
     useEffect(() => {
 
@@ -106,7 +106,7 @@ console.log(cardItem);
               <div className="flex items-center justify-between">
                 <span className="text-sm font-medium text-[#2b2420]">تعداد</span>
                 <div className="flex items-center gap-1 bg-[#f7f3ee] rounded-full p-1">
-                  <button className="w-9 h-9 rounded-full flex items-center justify-center text-[#2b2420] hover:bg-white hover:shadow-sm transition-all duration-200">
+                  <button  onClick={()=> handleDecreaseProduct(parseInt(params.id as string))} className="w-9 h-9 rounded-full flex items-center justify-center text-[#2b2420] hover:bg-white hover:shadow-sm transition-all duration-200">
                     −
                   </button>
                   <span className="w-8 text-center text-sm font-medium t
