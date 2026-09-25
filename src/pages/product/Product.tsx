@@ -101,39 +101,45 @@ console.log(cardItem);
               </div>
 
               <div className="h-px bg-[#ede6dc] my-7" />
+  
+           
 
               {/* انتخاب تعداد */}
               <div className="flex items-center justify-between">
                 <span className="text-sm font-medium text-[#2b2420]">تعداد</span>
                 <div className="flex items-center gap-1 bg-[#f7f3ee] rounded-full p-1">
-                  <button  onClick={()=> handleDecreaseProduct(parseInt(params.id as string))} className="w-9 h-9 rounded-full flex items-center justify-center text-[#2b2420] hover:bg-white hover:shadow-sm transition-all duration-200">
+              {Getproductqtynyid(parseInt(params.id as string)) === 0 ? "" :    <button    onClick={()=> handleDecreaseProduct(parseInt(params.id as string))} className="w-9 h-9 rounded-full flex items-center justify-center text-[#2b2420] hover:bg-white hover:shadow-sm transition-all duration-200">
                     −
-                  </button>
-                  <span className="w-8 text-center text-sm font-medium t
+                  </button>}
+                  <span className=" w-8 text-center text-sm font-medium t
                     
 ext-[#2b2420]"> {Getproductqtynyid(parseInt(params.id as string))} </span>
-                  <button  onClick={()=> handleIncreaseProduct(parseInt(params.id as string))}  className="w-9 h-9 rounded-full flex items-center justify-center text-[#2b2420] hover:bg-white hover:shadow-sm transition-all duration-200">
+                
+                
+                
+                         {Getproductqtynyid(parseInt(params.id as string)) === 0 ? "" :    <button  onClick={()=> handleIncreaseProduct(parseInt(params.id as string))}  className="w-9 h-9 rounded-full flex items-center justify-center text-[#2b2420] hover:bg-white hover:shadow-sm transition-all duration-200">
                     +
-                  </button>
+                  </button> }
                 </div>
               </div>
-
+              
               {/* دکمهٔ خرید — فقط دسکتاپ، در موبایل نوار چسبان پایین جایگزین می‌شود */}
+             
               <div className="hidden lg:flex flex-col mt-7">
-                <Button onClick={()=> handleIncreaseProduct(parseInt(params.id as string))} variant=' primary '
-                  className="
-                    w-full py-3.5 flex items-center justify-center gap-2 rounded-2xl
+                        {Getproductqtynyid(parseInt(params.id as string)) !== 0 ? "" :   <Button      onClick={()=> handleIncreaseProduct(parseInt(params.id as string))} variant=' primary '
+               className=" w-full py-3.5 flex items-center justify-center gap-2 rounded-2xl
                     bg-[#9a4b1f] hover:bg-[#7c3a15] active:scale-[0.98]
                     text-white text-sm font-semibold
                     shadow-[0_8px_20px_-6px_rgba(154,75,31,0.5)]
                     transition-all duration-200
-                  "
-                >
+              "
+                  >
                   <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                   </svg>
                   افزودن به سبد خرید
-                </Button>
+                </Button>}
+              
               </div>
             </div>
           </div>
@@ -171,7 +177,7 @@ ext-[#2b2420]"> {Getproductqtynyid(parseInt(params.id as string))} </span>
           <p className="text-[11px] text-[#8a7f73]">قیمت</p>
           <p className="text-lg font-bold text-[#2b2420]">{productViaID?.price}</p>
         </div>
-        <Button onClick={()=> handleIncreaseProduct(parseInt(params.id as string))} variant=' primary '
+                {Getproductqtynyid(parseInt(params.id as string)) !== 0 ? "" : <Button onClick={()=> handleIncreaseProduct(parseInt(params.id as string))} variant=' primary '
           className="
             flex-1 h-12 flex items-center justify-center gap-2 rounded-2xl
             bg-[#9a4b1f] active:scale-[0.98]
@@ -184,7 +190,7 @@ ext-[#2b2420]"> {Getproductqtynyid(parseInt(params.id as string))} </span>
             <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
           </svg>
           افزودن به سبد خرید
-        </Button>
+        </Button>}
       </div>
     </div>
   )
