@@ -17,8 +17,8 @@ import React, {  createContext, useContext, useState } from "react";
                 cardItem  : ICardItem[],
                 handleIncreaseProduct : ( id : number  ) => void  ;
                 handleDecreaseProduct : ( id : number ) => void ;  
+                Getproductqtynyid : ( id  : number ) => number ; 
                 
-
     }
 
  
@@ -88,11 +88,13 @@ export function ShoppingcardContext_Provider(  {  children  } : IShoppingCardCon
                     } 
 
 
-
+                const Getproductqtynyid=(id : number )=>{
+                     return      cardItem.find(item => item.id == id)?.qty || 0 
+                }
 
     return(
 
-         <ShoppingCardContext.Provider value={ { cardItem, handleIncreaseProduct , handleDecreaseProduct} }>
+         <ShoppingCardContext.Provider value={ { cardItem,Getproductqtynyid, handleIncreaseProduct , handleDecreaseProduct} }>
             { children } 
          </ShoppingCardContext.Provider>
     )
